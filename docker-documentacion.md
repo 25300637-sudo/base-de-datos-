@@ -22,8 +22,8 @@ docker run --name ServerMariaDBG2 -e MARIADB_ROOT_PASSWORD=123456 \
 
 # Contenedor de Postgres con Volumen
 docker run --name ServerPostgresG2 -e POSTGRES_PASSWORD=123456 \
--d -p 5457:5432 -v v-postgresg2:/var/lib/postgresql/data \
-bbb88
+-d -p 5457:5432 -v v-postgresg2:/var/lib/postgresql \
+bfe50
 
 # Contenedor de SQLServer 2022 con Volumen
 docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=P@ssw0rd" \
