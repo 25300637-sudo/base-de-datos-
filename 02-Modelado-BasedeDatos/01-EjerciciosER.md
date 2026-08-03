@@ -51,7 +51,7 @@ una Universidad administra profesores y cursos
 2. Un curso solo puede ser impartido por un profesor
 3. Puede existir un profesor que actualmente no imparta cursos
 4. Todo curso debe estar a
-signado a un profesor
+cdsignado a un profesor
 
 ![Ejercicio2](../img/ER/Ejercicio2_Curso.jpg)
 
