@@ -208,3 +208,80 @@ FROM detalle_ventas
 ORDER BY descuento DESC;
 
 -- TODO: DISTINC CON MAS DE UN CAMPO 
+--cuando el DISTINC se utiliza con varias columnas se evalua la 
+--combinacion completa 
+
+SELECT 
+	id_categoria,
+	id_producto
+FROM productos
+ORDER BY id_categoria DESC, id_producto ASC;
+GO
+
+
+SELECT 
+	id_categoria,
+	id_producto
+FROM productos
+ORDER BY id_categoria DESC, id_producto ASC;
+GO
+
+SELECT 
+	id_cliente,
+	id_empleado
+FROM ventas
+ORDER BY 1DESC, 2DESC;
+GO
+
+SELECT 
+	id_cliente,
+	id_empleado
+FROM ventas
+ORDER BY 1DESC, 2DESC;
+
+
+-- yuso de top
+
+--limita la cantidad de filas devueltas por una consulta
+
+SELECT TOP (5)
+	id_producto,
+	codigo,
+	nombre,
+	precio
+FROM productos
+ORDER BY precio DESC;
+
+SELECT
+	nombre
+FROM clientes;
+
+-- top con expresiones calculadas 
+
+SELECT 
+	codigo,
+	nombre,
+	precio,
+	existencia,
+	(precio * existencia) AS valor_inventarlo
+	FROM productos;
+
+	--top con porcentaje 
+
+	--sql server permite limitar el resultadio mediante un porcentaje 
+
+	
+SELECT  TOP(10) PERCENT
+	codigo,
+	nombre,
+	precio,
+	existencia,
+	(precio * existencia) AS valor_inventarlo
+	FROM productos;
+
+
+	--combinar DISTIC CON EL TOP
+
+SELECT DISTINCT TOP (3)
+	descuento
+FROM detalle_ventas;
