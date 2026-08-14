@@ -1,0 +1,41 @@
+
+se termino de ver los temas de CREATE, ALTER,DROP y se arealizo 
+un ejercicio completo de la base de datos comercializadora de la base 
+
+
+CREATE DATABASE comercializacion;
+go 
+USE comercializacion;
+-- tabla producto
+ CREATE TABLE producto (
+ numero_producto CHAR(3) NOT NULL,
+ numero_fb CHAR(5) NOT NULL,
+ descripcion VARCHAR(50) NOT NULL,
+ precio_unitario DECIMAL (10,2) NOT NULL,
+ existencia INT NOT NULL,
+ CONSTRAINT pk_producto
+ PRIMARY KEY (numero_producto, numero_fb),
+ CONSTRAINT uq_producto_descripcio
+ UNIQUE (descripcion),
+ CONSTRAINT ck_producto_precio_unitario
+ CHECK(precio_unitario> 0.0),
+ CONSTRAINT ck_producto_existencia
+ CHECK (existencia BETWEEN 1 AND 1000)
+ );
+ GO
+
+ -- TABLA OFOCINA
+  CREATE TABLE oficina(
+  numero_oficina INT NOT NULL IDENTITY (1,1),
+  ciudad VARCHAR(30) NOT NULL,
+  region VARCHAR(20),
+  objeto DECIMAL(10,2)NOT NULL,
+  ventas DECIMAL(10,2) NOT NULL,
+  numero_empl INT NOT NULL,
+  CONSTRAINT pk_oficina
+  PRIMARY KEY (numero_oficina),
+  CONSTRAINT ck_oficina_region
+  CHECK (region IN ('ESTE', 'OESTE'))
+  
+  );
+  GO
